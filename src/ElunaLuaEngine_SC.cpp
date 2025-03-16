@@ -235,15 +235,7 @@ public:
 class Eluna_AllMapScript : public AllMapScript
 {
 public:
-    Eluna_AllMapScript() : AllMapScript("Eluna_AllMapScript", {
-        ALLMAPHOOK_ON_BEFORE_CREATE_INSTANCE_SCRIPT,
-        ALLMAPHOOK_ON_DESTROY_INSTANCE,
-        ALLMAPHOOK_ON_CREATE_MAP,
-        ALLMAPHOOK_ON_DESTROY_MAP,
-        ALLMAPHOOK_ON_PLAYER_ENTER_ALL,
-        ALLMAPHOOK_ON_PLAYER_LEAVE_ALL,
-        ALLMAPHOOK_ON_MAP_UPDATE
-    }) { }
+    Eluna_AllMapScript() : AllMapScript("Eluna_AllMapScript") { }
 
     void OnBeforeCreateInstanceScript(InstanceMap* instanceMap, InstanceScript** instanceData, bool /*load*/, std::string /*data*/, uint32 /*completedEncounterMask*/) override
     {
@@ -285,12 +277,7 @@ public:
 class Eluna_AuctionHouseScript : public AuctionHouseScript
 {
 public:
-    Eluna_AuctionHouseScript() : AuctionHouseScript("Eluna_AuctionHouseScript", {
-        AUCTIONHOUSEHOOK_ON_AUCTION_ADD,
-        AUCTIONHOUSEHOOK_ON_AUCTION_REMOVE,
-        AUCTIONHOUSEHOOK_ON_AUCTION_SUCCESSFUL,
-        AUCTIONHOUSEHOOK_ON_AUCTION_EXPIRE
-    }) { }
+    Eluna_AuctionHouseScript() : AuctionHouseScript("Eluna_AuctionHouseScript") { }
 
     void OnAuctionAdd(AuctionHouseObject* ah, AuctionEntry* entry) override
     {
@@ -316,12 +303,7 @@ public:
 class Eluna_BGScript : public BGScript
 {
 public:
-    Eluna_BGScript() : BGScript("Eluna_BGScript", {
-        ALLBATTLEGROUNDHOOK_ON_BATTLEGROUND_START,
-        ALLBATTLEGROUNDHOOK_ON_BATTLEGROUND_END,
-        ALLBATTLEGROUNDHOOK_ON_BATTLEGROUND_DESTROY,
-        ALLBATTLEGROUNDHOOK_ON_BATTLEGROUND_CREATE
-    }) { }
+    Eluna_BGScript() : BGScript("Eluna_BGScript") { }
 
     void OnBattlegroundStart(Battleground* bg) override
     {
@@ -347,9 +329,7 @@ public:
 class Eluna_CommandSC : public CommandSC
 {
 public:
-    Eluna_CommandSC() : CommandSC("Eluna_CommandSC", {
-        ALLCOMMANDHOOK_ON_TRY_EXECUTE_COMMAND
-    }) { }
+    Eluna_CommandSC() : CommandSC("Eluna_CommandSC") { }
 
     bool OnTryExecuteCommand(ChatHandler& handler, std::string_view cmdStr) override
     {
@@ -386,10 +366,7 @@ public:
 class Eluna_GameEventScript : public GameEventScript
 {
 public:
-    Eluna_GameEventScript() : GameEventScript("Eluna_GameEventScript", {
-        GAMEEVENTHOOK_ON_START,
-        GAMEEVENTHOOK_ON_STOP
-    }) { }
+    Eluna_GameEventScript() : GameEventScript("Eluna_GameEventScript") { }
 
     void OnStart(uint16 eventID) override
     {
@@ -405,14 +382,7 @@ public:
 class Eluna_GroupScript : public GroupScript
 {
 public:
-    Eluna_GroupScript() : GroupScript("Eluna_GroupScript", {
-        GROUPHOOK_ON_ADD_MEMBER,
-        GROUPHOOK_ON_INVITE_MEMBER,
-        GROUPHOOK_ON_REMOVE_MEMBER,
-        GROUPHOOK_ON_CHANGE_LEADER,
-        GROUPHOOK_ON_DISBAND,
-        GROUPHOOK_ON_CREATE
-    }) { }
+    Eluna_GroupScript() : GroupScript("Eluna_GroupScript") { }
 
     void OnAddMember(Group* group, ObjectGuid guid) override
     {
@@ -448,19 +418,7 @@ public:
 class Eluna_GuildScript : public GuildScript
 {
 public:
-    Eluna_GuildScript() : GuildScript("Eluna_GuildScript", {
-        GUILDHOOK_ON_ADD_MEMBER,
-        GUILDHOOK_ON_REMOVE_MEMBER,
-        GUILDHOOK_ON_MOTD_CHANGED,
-        GUILDHOOK_ON_INFO_CHANGED,
-        GUILDHOOK_ON_CREATE,
-        GUILDHOOK_ON_DISBAND,
-        GUILDHOOK_ON_MEMBER_WITDRAW_MONEY,
-        GUILDHOOK_ON_MEMBER_DEPOSIT_MONEY,
-        GUILDHOOK_ON_ITEM_MOVE,
-        GUILDHOOK_ON_EVENT,
-        GUILDHOOK_ON_BANK_EVENT
-    }) { }
+    Eluna_GuildScript() : GuildScript("Eluna_GuildScript") { }
 
     void OnAddMember(Guild* guild, Player* player, uint8& plRank) override
     {
@@ -522,9 +480,7 @@ public:
 class Eluna_LootScript : public LootScript
 {
 public:
-    Eluna_LootScript() : LootScript("Eluna_LootScript", {
-        LOOTHOOK_ON_LOOT_MONEY
-    }) { }
+    Eluna_LootScript() : LootScript("Eluna_LootScript") { }
 
     void OnLootMoney(Player* player, uint32 gold) override
     {
@@ -535,9 +491,7 @@ public:
 class Eluna_MiscScript : public MiscScript
 {
 public:
-    Eluna_MiscScript() : MiscScript("Eluna_MiscScript", {
-        MISCHOOK_GET_DIALOG_STATUS
-    }) { }
+    Eluna_MiscScript() : MiscScript("Eluna_MiscScript") { }
 
     void GetDialogStatus(Player* player, Object* questgiver) override
     {
@@ -551,9 +505,7 @@ public:
 class Eluna_PetScript : public PetScript
 {
 public:
-    Eluna_PetScript() : PetScript("Eluna_PetScript", {
-        PETHOOK_ON_PET_ADD_TO_WORLD
-    }) { }
+    Eluna_PetScript() : PetScript("Eluna_PetScript") { }
 
     void OnPetAddToWorld(Pet* pet) override
     {
@@ -564,67 +516,7 @@ public:
 class Eluna_PlayerScript : public PlayerScript
 {
 public:
-    Eluna_PlayerScript() : PlayerScript("Eluna_PlayerScript", {
-        PLAYERHOOK_ON_PLAYER_RESURRECT,
-        PLAYERHOOK_CAN_PLAYER_USE_CHAT,
-        PLAYERHOOK_CAN_PLAYER_USE_PRIVATE_CHAT,
-        PLAYERHOOK_CAN_PLAYER_USE_GROUP_CHAT,
-        PLAYERHOOK_CAN_PLAYER_USE_GUILD_CHAT,
-        PLAYERHOOK_CAN_PLAYER_USE_CHANNEL_CHAT,
-        PLAYERHOOK_ON_LOOT_ITEM,
-        PLAYERHOOK_ON_PLAYER_LEARN_TALENTS,
-        PLAYERHOOK_CAN_USE_ITEM,
-        PLAYERHOOK_ON_EQUIP,
-        PLAYERHOOK_ON_PLAYER_ENTER_COMBAT,
-        PLAYERHOOK_ON_PLAYER_LEAVE_COMBAT,
-        PLAYERHOOK_CAN_REPOP_AT_GRAVEYARD,
-        PLAYERHOOK_ON_QUEST_ABANDON,
-        PLAYERHOOK_ON_MAP_CHANGED,
-        PLAYERHOOK_ON_GOSSIP_SELECT,
-        PLAYERHOOK_ON_GOSSIP_SELECT_CODE,
-        PLAYERHOOK_ON_PVP_KILL,
-        PLAYERHOOK_ON_CREATURE_KILL,
-        PLAYERHOOK_ON_PLAYER_KILLED_BY_CREATURE,
-        PLAYERHOOK_ON_LEVEL_CHANGED,
-        PLAYERHOOK_ON_FREE_TALENT_POINTS_CHANGED,
-        PLAYERHOOK_ON_TALENTS_RESET,
-        PLAYERHOOK_ON_MONEY_CHANGED,
-        PLAYERHOOK_ON_GIVE_EXP,
-        PLAYERHOOK_ON_REPUTATION_CHANGE,
-        PLAYERHOOK_ON_DUEL_REQUEST,
-        PLAYERHOOK_ON_DUEL_START,
-        PLAYERHOOK_ON_DUEL_END,
-        PLAYERHOOK_ON_EMOTE,
-        PLAYERHOOK_ON_TEXT_EMOTE,
-        PLAYERHOOK_ON_SPELL_CAST,
-        PLAYERHOOK_ON_LOGIN,
-        PLAYERHOOK_ON_LOGOUT,
-        PLAYERHOOK_ON_CREATE,
-        PLAYERHOOK_ON_SAVE,
-        PLAYERHOOK_ON_DELETE,
-        PLAYERHOOK_ON_BIND_TO_INSTANCE,
-        PLAYERHOOK_ON_UPDATE_AREA,
-        PLAYERHOOK_ON_UPDATE_ZONE,
-        PLAYERHOOK_ON_FIRST_LOGIN,
-        PLAYERHOOK_ON_LEARN_SPELL,
-        PLAYERHOOK_ON_ACHI_COMPLETE,
-        PLAYERHOOK_ON_FFA_PVP_STATE_UPDATE,
-        PLAYERHOOK_CAN_INIT_TRADE,
-        PLAYERHOOK_CAN_SEND_MAIL,
-        PLAYERHOOK_CAN_JOIN_LFG,
-        PLAYERHOOK_ON_QUEST_REWARD_ITEM,
-        PLAYERHOOK_ON_GROUP_ROLL_REWARD_ITEM,
-        PLAYERHOOK_ON_CREATE_ITEM,
-        PLAYERHOOK_ON_STORE_NEW_ITEM,
-        PLAYERHOOK_ON_PLAYER_COMPLETE_QUEST,
-        PLAYERHOOK_CAN_GROUP_INVITE,
-        PLAYERHOOK_ON_BATTLEGROUND_DESERTION,
-        PLAYERHOOK_ON_CREATURE_KILLED_BY_PET,
-        PLAYERHOOK_ON_CAN_UPDATE_SKILL,
-        PLAYERHOOK_ON_BEFORE_UPDATE_SKILL,
-        PLAYERHOOK_ON_UPDATE_SKILL,
-        PLAYERHOOK_CAN_RESURRECT
-    }) { }
+    Eluna_PlayerScript() : PlayerScript("Eluna_PlayerScript") { }
 
     void OnPlayerResurrect(Player* player, float /*restore_percent*/, bool /*applySickness*/) override
     {
@@ -945,10 +837,7 @@ public:
 class Eluna_ServerScript : public ServerScript
 {
 public:
-    Eluna_ServerScript() : ServerScript("Eluna_ServerScript", {
-        SERVERHOOK_CAN_PACKET_SEND,
-        SERVERHOOK_CAN_PACKET_RECEIVE
-    }) { }
+    Eluna_ServerScript() : ServerScript("Eluna_ServerScript") { }
 
     bool CanPacketSend(WorldSession* session, WorldPacket& packet) override
     {
@@ -970,14 +859,7 @@ public:
 class Eluna_SpellSC : public SpellSC
 {
 public:
-    Eluna_SpellSC() : SpellSC("Eluna_SpellSC", {
-        ALLSPELLHOOK_ON_DUMMY_EFFECT_GAMEOBJECT,
-        ALLSPELLHOOK_ON_DUMMY_EFFECT_CREATURE,
-        ALLSPELLHOOK_ON_DUMMY_EFFECT_ITEM,
-        ALLSPELLHOOK_ON_CAST_CANCEL,
-        ALLSPELLHOOK_ON_CAST,
-        ALLSPELLHOOK_ON_PREPARE
-    }) { }
+    Eluna_SpellSC() : SpellSC("Eluna_SpellSC") { }
 
     void OnDummyEffect(WorldObject* caster, uint32 spellID, SpellEffIndex effIndex, GameObject* gameObjTarget) override
     {
@@ -1013,9 +895,7 @@ public:
 class Eluna_UnitScript : public UnitScript
 {
 public:
-    Eluna_UnitScript() : UnitScript("Eluna_UnitScript", true, {
-        UNITHOOK_ON_UNIT_UPDATE
-    }) { }
+    Eluna_UnitScript() : UnitScript("Eluna_UnitScript") { }
 
     void OnUnitUpdate(Unit* unit, uint32 diff) override
     {
@@ -1057,12 +937,7 @@ public:
 class Eluna_WorldObjectScript : public WorldObjectScript
 {
 public:
-    Eluna_WorldObjectScript() : WorldObjectScript("Eluna_WorldObjectScript", {
-        WORLDOBJECTHOOK_ON_WORLD_OBJECT_DESTROY,
-        WORLDOBJECTHOOK_ON_WORLD_OBJECT_CREATE,
-        WORLDOBJECTHOOK_ON_WORLD_OBJECT_SET_MAP,
-        WORLDOBJECTHOOK_ON_WORLD_OBJECT_UPDATE
-    }) { }
+    Eluna_WorldObjectScript() : WorldObjectScript("Eluna_WorldObjectScript") { }
 
     void OnWorldObjectDestroy(WorldObject* object) override
     {
@@ -1090,18 +965,7 @@ public:
 class Eluna_WorldScript : public WorldScript
 {
 public:
-    Eluna_WorldScript() : WorldScript("Eluna_WorldScript", {
-        WORLDHOOK_ON_OPEN_STATE_CHANGE,
-        WORLDHOOK_ON_BEFORE_CONFIG_LOAD,
-        WORLDHOOK_ON_AFTER_CONFIG_LOAD,
-        WORLDHOOK_ON_SHUTDOWN_INITIATE,
-        WORLDHOOK_ON_SHUTDOWN_CANCEL,
-        WORLDHOOK_ON_UPDATE,
-        WORLDHOOK_ON_STARTUP,
-        WORLDHOOK_ON_SHUTDOWN,
-        WORLDHOOK_ON_AFTER_UNLOAD_ALL_MAPS,
-        WORLDHOOK_ON_BEFORE_WORLD_INITIALIZED
-    }) { }
+    Eluna_WorldScript() : WorldScript("Eluna_WorldScript") { }
 
     void OnOpenStateChange(bool open) override
     {
@@ -1167,12 +1031,7 @@ public:
 class Eluna_TicketScript : public TicketScript
 {
 public:
-    Eluna_TicketScript() : TicketScript("Eluna_TicketScript", {
-        TICKETHOOK_ON_TICKET_CREATE,
-        TICKETHOOK_ON_TICKET_UPDATE_LAST_CHANGE,
-        TICKETHOOK_ON_TICKET_CLOSE,
-        TICKETHOOK_ON_TICKET_RESOLVE
-    }) { }
+    Eluna_TicketScript() : TicketScript("Eluna_TicketScript") { }
 
     void OnTicketCreate(GmTicket* ticket) override
     {
